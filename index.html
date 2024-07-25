@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Board</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <h1>Task Board</h1>
+    <h4>A simple Kanban board for task management</h4>
+  </div>
+
+  <hr>
+
+  <button id="add-task">Add Task</button>
+
+  <div class="column-header-container">
+    <div class="column-header">To Do</div>
+    <div class="column-header">In Progress</div>
+    <div class="column-header">Done</div>
+  </div>
+  
+  <div id="task-board" class="task-board">
+    <div class="column" id="to-do-column" ondrop="drop(event, 0)" ondragover="allowDrop(event)">To Do</div>
+    <div class="column" id="in-progress-column" ondrop="drop(event, 1)" ondragover="allowDrop(event)">In Progress</div>
+    <div class="column" id="done-column" ondrop="drop(event, 2)" ondragover="allowDrop(event)">Done</div>
+  </div>
+
+  <div id="task-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Task</h3>
+        <span class="close">&times;</span>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <div class="row">
+          <div class="input-row">
+              <label for="task-title">Task Title</label>
+              <input type="text" id="title" placeholder="Title">
+          </div>
+          <div class="input-row">
+              <label for="task-due-date">Task Due Date</label>
+              <input type="date" id="deadline">
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-row">
+              <label for="task-description">Task Description</label>
+              <textarea id="description" placeholder="Description"></textarea>
+          </div>
+      </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button id="save-task">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="dayjs.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
